@@ -39,7 +39,7 @@ public class CheckSearchByYearHappyPath {
         bookShelf.printBooks();
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name="{index}: search for {0} should be not null")
     public static Collection dataForSearchYearHappyPath() {
         return Arrays.asList(new Object[][]{
                 {2015},

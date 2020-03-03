@@ -39,7 +39,7 @@ public class CheckSearchByYearUnhappyPath {
         bookShelf.printBooks();
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name="{index}: search for {0} should be null")
     public static Collection dataForSearchYearUnhappyPath() {
         return Arrays.asList(new Object[][]{
                 {2025},
@@ -52,10 +52,10 @@ public class CheckSearchByYearUnhappyPath {
         try {
             someBooks = bookShelf.searchYear(year);
             someBooks.printBooks();
-            Assert.assertNull("\nThe test checks the search for books by author with invalid data." +
-                    "\nThese books are found with author " + year, someBooks);
+            Assert.assertNull("\nThe test checks the search for books by year of publication with invalid data." +
+                    "\nThese books are found with year of publication after " + year, someBooks);
         } catch (InvalidInputException err) {
-            System.err.println(err.getMessage());
+            System.err.println(err.getMessage() + " with year of publication after  " + year);
         }
     }
 

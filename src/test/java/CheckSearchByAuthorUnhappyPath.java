@@ -39,7 +39,7 @@ public class CheckSearchByAuthorUnhappyPath {
         bookShelf.printBooks();
     }
 
-    @Parameterized.Parameters(name="{index}: search for {0} should be {1}")
+    @Parameterized.Parameters(name="{index}: search for {0} should be null")
     public static Collection dataForSearchAuthorUnhappyPath() {
         return Arrays.asList(new Object[][]{
                 {"Олег Сенцо"},
@@ -55,7 +55,7 @@ public class CheckSearchByAuthorUnhappyPath {
             Assert.assertNull("\nThe test checks the search for books by author with invalid data." +
                     "\nThese books are found with author " + author, someBooks);
         } catch (InvalidInputException err) {
-            System.err.println(err.getMessage());
+            System.err.println(err.getMessage() + " by author " + author);
         }
     }
 
